@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todo App</title>
+  
+  <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="login form">
+      <header>Login</header><br>
+      {% if messages %}
+          {% for message in messages %}
+            <h3 style="color: firebrick" class="{{ message.tags }}">{{ message }}</h3>
+          {% endfor %}
+      {% endif %}
+      <form action="{% url 'loginpage' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Username or Email" required name="email">
+        <input type="password" placeholder="Enter your password" required name="password">
+        <a href="#">Forgot password?</a>
+        <input type="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+          <label for="check"><a href="{% url 'register' %}">Signup</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
