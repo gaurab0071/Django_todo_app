@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todoapp'
+    'todoapp',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +86,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bhttraigaurab332@gmail.com'
 EMAIL_HOST_PASSWORD = 'zoeoknwthydoafyr'
+DEFAULT_FROM_EMAIL = 'bhttraigaurab332@gmail.com'
 
 
 

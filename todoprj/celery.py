@@ -14,6 +14,8 @@ app = Celery('todoprj')
 # the configuration object to child processes.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+app.conf.broker_connection_retry_on_startup = True
+
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
@@ -21,6 +23,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'send-reminders-every-minute': {
         'task': 'todoapp.tasks.send_reminders',
-        'schedule': 360.0,  # Every minute
+        'schedule': 60.0,  # Every minute
     },
 }
